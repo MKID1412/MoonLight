@@ -1,0 +1,21 @@
+name: xx                           #poc名,尽量poc名和yml文件的poc名保持相同,如果以感叹号!开头代表该漏洞尚未找到实例待验证,即该poc不保证准确,以感叹号开头则name必须用双引号""包裹如"!weiphp5.0-rce"
+rules: 
+  - method: GET                    #请求方式,-为列表开始,即rules是列表方式,列表每个元素就是一个包含method、headers、path、body的结构体
+    headers:                       #请求头
+      Content-Type: xxx       
+      Accept: xxx
+    path: /xx/xx                   #请求资源路径,要进行url编码
+    body: xxx                      #请求体
+    response:                      #匹配响应,以此来判断是否存在漏洞
+      status_code: 200             #响应状态码
+      response_header: xx          #响应头
+      response_body: xx            #响应体
+detail:                            #关于该漏洞的描述及搜索方法,可不填
+  description: xx
+  search:             
+    fofa: app=""
+    鹰图: web.title=""
+
+#poc的yml写完后最好去webfingers.json里添加指纹数据,参照webfingers.json里的数据添加如
+#{"product":"红帆OA","pocname":"HFiOffice", "position":"code", "matches":"(iOffice|HFOffice)"},  第一个字段product是产品名。第四个字段为正则表达式。第三个字段position为code时在响应体中利用正则表达式匹配,不为code时就去响应头中用正则表达式匹配。第二个字段pocname就是poc名,当网站指纹为该产品时则读取所有包含pocname名的poc,在这个示例中就会读取所有poc名字里含有HFiOffice的poc,如HFiOffice-sqli.yml
+#当然也可不添加指纹数据,后续会匹配不到指纹对应的poc，就会调用所有poc进行扫描

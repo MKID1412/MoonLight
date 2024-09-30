@@ -1,0 +1,13 @@
+aizhan:
+  url: https://icp.aizhan.com/
+  cookie: userId=0000000
+  seo_url: https://www.aizhan.com/cha/
+  br_url: https://rank.aizhan.com/
+  pr_url: https://pr.aizhan.com/
+  weightapi_url: https://apistore.aizhan.com/baidurank/siteinfos/
+  weightapi_key: 
+chinaz:
+  url: https://icp.chinaz.com/
+  cookie: toolUserGrade=DA558BECA59696EB6D6F7073658259097496A34F9B3E8B35F3075E72A88B4A26CBAD406B542FEEF4A7B817C737962796746C7AC7384A4811136F863242F69BE99A6DC128CA2894975194E08B408B07AA2FE270DB81B779A720710205372A7E3A0522C075AD31A5B950B9552E0E0F299DA6400E54A5768622;
+    bbsmax_user=7b90201e-7f31-71f3-f9c4-ccc6dfd2078B
+  getip_url: https://ip.tool.chinaz.com/api/getResolvedIps?keyword=

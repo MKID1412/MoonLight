@@ -1,0 +1,15 @@
+name: HTTPD-AC-infoleak   #智能AC管理系统HTTPD-AC 1.0信息泄露
+rules: 
+  - method: GET 
+    path: /actpt.data
+    headers:
+    body:
+    expression:                        
+      status_code:                  
+      response_header:              
+      response_body: ap_info
+detail:                          
+  description: "智能AC管理系统HTTPD-AC 1.0服务存在未授权访问漏洞,泄露wifi信息。截至到2024.10.1部分网站存在该漏洞"
+  search:             
+    fofa: header="HTTPD_ac 1.0"
+    鹰图: header="HTTPD_ac 1.0"

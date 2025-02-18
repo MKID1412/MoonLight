@@ -35,5 +35,12 @@
 {"product":"畅捷通TPlus","pocname":"CJT-TPlus", "position":"code", "matches":"(畅捷通 T+|/tplus/view/login.html)"},
 {"product":"通天星CMS-GPS","pocname":"TTXCMS-GPS", "position":"code", "matches":"(/808gps/)"},
 {"product":"大华智慧园区","pocname":"dahua", "position":"headers", "matches":"(大华智慧园区)"},
-{"product":"灵当CRM","pocname":"LD-CRM", "position":"code", "matches":"(include/js/ldAjax.js)"}
+{"product":"灵当CRM","pocname":"LD-CRM", "position":"code", "matches":"(include/js/ldAjax.js)"},
+{"product":"智能AC HTTPD-AC","pocname":"HTTPD-AC", "position":"headers", "matches":"(HTTPD_ac 1.0)"},
+{"product":"百易云资产管理运营系统","pocname":"byy", "position":"code", "matches":"(不要着急，点此)"},
+{"product":"微信公众号小说漫画系统","pocname":"mh", "position":"code", "matches":"(/Public/home/mhjs/jquery.js)"},
+{"product":"上海孚盟软件","pocname":"fmy", "position":"code", "matches":"(hidLicResult|hidProductID)"},
+{"product":"金华迪加现场大屏互动系统","pocname":"jhdj", "position":"code", "matches":"(/wall/themes/meepo/assets/images/defaultbg.jpg)"},
+{"product":"金华迪加现场大屏互动系统","pocname":"jhdj", "position":"headers", "matches":"(现场活动大屏幕系统)"},
+{"product":"锐明Crocus系统","pocname":"crocus", "position":"code", "matches":"(inp_verification)"}
 ]

